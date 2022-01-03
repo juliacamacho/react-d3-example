@@ -10,23 +10,21 @@ const green = '#b6e86f';
 const blue = '#52b6ca';
 const colors = chroma.scale([blue, green, red]);
 
-class Chart extends Component {
-  state = {
-  };
+const Chart = (data) => {
+  // state = {
+  // };
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const {data} = nextProps;
-    if (!data) return {};
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   const {data} = nextProps;
+  //   if (!data) return {};
 
-    return {};
-  }
+  //   return {};
+  // }
 
-  render() {
-    return (
-      <svg width={width} height={height}>
-      </svg>
-    );
-  }
+  return (
+    <svg width={width} height={height}>
+    </svg>
+  );
 }
 
 export default Chart;

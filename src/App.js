@@ -4,7 +4,9 @@ import LineChart from './visualizations/LineChart';
 import BarChart from './visualizations/BarChart';
 import RadialChart from './visualizations/RadialChart';
 import Chart from './visualizations/Chart';
-
+import sf from '../public/sf.json'
+import ny from '../public/ny.json'
+import am from '../public/am.json'
 class App extends Component {
   state = {
     temps: {},
@@ -12,18 +14,19 @@ class App extends Component {
   };
 
   componentDidMount() {
-    Promise.all([
-      fetch(`${process.env.PUBLIC_URL}/sf.json`),
-      fetch(`${process.env.PUBLIC_URL}/ny.json`),
-      fetch(`${process.env.PUBLIC_URL}/am.json`),
-    ]).then(responses => Promise.all(responses.map(resp => resp.json())))
-    .then(([sf, ny, am]) => {
+    // Promise.all([
+    //   fetch(`${process.env.PUBLIC_URL}/sf.json`),
+    //   fetch(`${process.env.PUBLIC_URL}/ny.json`),
+    //   fetch(`${process.env.PUBLIC_URL}/am.json`),
+    // ]).then(responses => Promise.all(responses.map(resp => resp.json())))
+    // .then(
+      ([sf, ny, am]) => {
       sf.forEach(day => day.date = new Date(day.date));
       ny.forEach(day => day.date = new Date(day.date));
       // am.forEach(day => day.date = new Date(day.date));
 
       this.setState({temps: {sf, ny, am}});
-    });
+    }
   }
 
   updateCity = (e) => {
